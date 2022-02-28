@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="script.js"></script>
   
   <title>Frontend Mentor | Base Apparel coming soon page</title>
 </head>
@@ -40,29 +41,5 @@
     </div>
   </main>
 
-  <script>
-    const email = document.querySelector('.email');
-    const form = document.querySelector('.form');
-    const errorEmail = document.querySelector('.invalid-email-message');
-    const errorIcon = document.querySelector('.error-icon');
-
-    form.addEventListener('submit', e => {
-      if(email.value){
-        const regexMatch = /\S+@\S+\.\S+/.test(email.value);
-        if (regexMatch) {
-          errorEmail.textContent = '';
-          errorIcon.style.display = 'none';
-        } else {
-          e.preventDefault();
-          errorEmail.textContent = 'Please provide a valid email';
-          errorIcon.style.display = 'block';
-        }
-      } else {
-        e.preventDefault();
-        errorEmail.textContent = "Please provide a valid email";
-        errorIcon.style.display = 'block';
-      }
-    });
-  </script>
 </body>
 </html>
