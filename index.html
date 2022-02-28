@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+</head>
+<body>
+  <main class="container">
+    <div class="content">
+
+      <div class="text-content">
+        <div class="logo">
+          <img src="images/logo.svg" alt="logo">
+        </div>
+        <h1>We're <span>coming <br/>soon</span></h1>
+        <p class="content-text">
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our launch deals.
+        </p>
+        <form action="#" class="form">
+          <div class="input-container">
+            <input type="email" placeholder="Email Address" class="email"/>
+            <img src="images/icon-error.svg" class="error-icon" alt="error icon">
+            <button><img src="images/icon-arrow.svg" alt="arrow icon"></button>
+          </div>
+          <p class="invalid-email-message"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="image-content">
+    </div>
+  </main>
+
+  <script>
+    const email = document.querySelector('.email');
+    const form = document.querySelector('.form');
+    const errorEmail = document.querySelector('.invalid-email-message');
+    const errorIcon = document.querySelector('.error-icon');
+
+    form.addEventListener('submit', e => {
+      if(email.value){
+        const regexMatch = /\S+@\S+\.\S+/.test(email.value);
+        if (regexMatch) {
+          errorEmail.textContent = '';
+          errorIcon.style.display = 'none';
+        } else {
+          e.preventDefault();
+          errorEmail.textContent = 'Please provide a valid email';
+          errorIcon.style.display = 'block';
+        }
+      } else {
+        e.preventDefault();
+        errorEmail.textContent = "Please provide a valid email";
+        errorIcon.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
